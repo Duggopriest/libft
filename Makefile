@@ -29,11 +29,21 @@ files 	   = ft_strlen \
 			 ft_split \
 			 ft_itoa \
 			 ft_strmapi \
-			 ft_striteri	\
+			 ft_striteri \
 			 ft_putchar_fd \
 			 ft_putstr_fd \
 			 ft_putendl_fd \
 			 ft_putnbr_fd \
+			 ft_lstadd_back \
+			 ft_lstadd_front \
+			 ft_lstadd \
+			 ft_lstclear \
+			 ft_lstdelone \
+			 ft_lstiter \
+			 ft_lstlast \
+			 ft_lstmap \
+			 ft_lstnew \
+			 ft_lstsize \
 
 Compiler	= gcc
 

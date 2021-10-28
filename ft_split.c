@@ -71,6 +71,6 @@ char	**ft_split(char const *s, char t)
 			str[a][c++] = s[b++];
 		str[a][c] = '\0';
 	}
-	str[a] = '\0';
+	str[a] = 0;
 	return (str);
 }
