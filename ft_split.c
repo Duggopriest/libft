@@ -1,6 +1,6 @@
 #include "libft.h"
 
-static int	cp(char const *str, char c)
+static int	count_parts(char const *str, char c)
 {
 	int	count;
 	int	i;
@@ -19,7 +19,7 @@ static int	cp(char const *str, char c)
 	return (count);
 }
 
-int	wl(char const *s, char c)
+int	word_lenght(char const *s, char c)
 {
 	int	i;
 	int	len;
@@ -36,41 +36,30 @@ int	wl(char const *s, char c)
 	return (len);
 }
 
-static char	*strnew(size_t size)
-{
-	char	*str;
-
-	str = (char *)malloc(sizeof(char) * size + 1);
-	if (!str)
-		return (NULL);
-	ft_bzero(str, size + 1);
-	return (str);
-}
-
 char	**ft_split(char const *s, char t)
 {
-	int		a;
+	int		line;
 	size_t	b;
 	size_t	c;
 	char	**str;
 
-	a = -1;
+	line = -1;
 	b = 0;
-	str = (char **)malloc(sizeof(*str) * (cp(s, t) + 1));
+	str = (char **)malloc(sizeof(*str) * (count_parts(s, t) + 1));
 	if (str == NULL || !s)
 		return (NULL);
-	while (++a < cp(s, t))
+	while (++line < count_parts(s, t))
 	{
 		c = 0;
-		str[a] = strnew(wl(&s[b], t) + 1);
-		if (str[a] == NULL)
+		str[line] = malloc(word_lenght(&s[b], t) + 1);
+		if (str[line] == NULL)
 			return (NULL);
 		while (s[b] == t)
 			b++;
 		while (s[b] != t && s[b])
-			str[a][c++] = s[b++];
-		str[a][c] = '\0';
+			str[line][c++] = s[b++];
+		str[line][c] = '\0';
 	}
-	str[a] = 0;
+	str[line] = 0;
 	return (str);
 }
