@@ -63,6 +63,15 @@ $(NAME):
 
 all: $(NAME)
 
+// do "make git" and it will handle the rest for git pushing
+git:
+	@clear
+	@git add .
+	@echo "commit msg" 
+	@read COMMIT; \
+	git commit -m "$$COMMIT"; \
+	git push;
+
 clean:
 	rm -f $(NAME)
 	rm -f $(OFILES)
